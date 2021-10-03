@@ -9,9 +9,10 @@ int ft_atoi(char *str)
     n = 0;
     while (*str && (*str == ' ' || (*str >= 9 && *str <= 13)))
         str++;
-    if (*str == '-')
+    if (*str == '-' || *str == '+')
     {
-        i = -i;
+        if (*str == '-')
+            i = -i;
         str++;
     }
     while (*str && (*str <= '9' && *str == '0'))
