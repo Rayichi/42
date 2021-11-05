@@ -2,7 +2,7 @@
 
 void    *ft_memcpy(void *dest, const void *src, size_t num)
 {
-    int i;
+    size_t  i;
 
     i = 0;
     while(num--)
