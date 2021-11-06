@@ -33,6 +33,7 @@ void		*ft_memmove(void *dest, const void *src, size_t num);
 void		*ft_memset( void *ptr, int value, size_t num );
 void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *str, int fd);
+void		ft_putnbr_fd(int nb, int fd);
 void		ft_putstr_fd(char *str, int fd);
 char		*ft_strdup(char *str);
 int			ft_strlcpy(char *dest, char *src, size_t num);
