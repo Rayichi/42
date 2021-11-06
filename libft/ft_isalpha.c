@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:17:49 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 13:43:22 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/06 15:41:58 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalpha(char c)
 {
-	return ((c < 123 && c >= 'a') || (c >= 'A' && c <= ' Z'));
+	return ((c < 123 && c >= 'a') || (c >= 'A' && c <= 'Z'));
 }

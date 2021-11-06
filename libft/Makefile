@@ -4,7 +4,7 @@ CC = gcc
 
 FLAGS = -wall -Wextra -Werror
 
-FILE = *.c
+FILE = $(addsuffix .c, atoi bzero calloc isalpha isalnum isdigit isascii isprint memccpy memcmp memcpy memmove memset strchr strdup strlcat strlcpy strlen strncmp strnstr strrchr tolower toupper)
 
 SRCS = $(addprefix ft_, $(FILE))
 
