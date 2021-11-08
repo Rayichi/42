@@ -33,7 +33,6 @@ static int	ft_size(char const *s1, char const *set)
 		i = i + ft_inset(*s1, set);
 		s1++;
 	}
-	printf("%d\n",i);
 	return (i);
 }
 
@@ -57,10 +56,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	str[i] = 0;
 	return (str);
-}
-
-int main(int ac, char **av)
-{
-	printf("%s\n", ft_strtrim(av[1], av[2]));
-	return (0);
 }

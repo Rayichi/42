@@ -27,7 +27,7 @@ int			ft_isprint(int c);
 char		*ft_itoa(int n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memccpy(void *dest, const void *src, int c, size_t n);
-void		*ft_memchr(void *ptr, int value, size_t num);
+void		*ft_memchr(const void *ptr, int value, size_t num);
 void		*ft_memcpy(void *destination, const void *source, size_t num);
 void		*ft_memmove(void *dest, const void *src, size_t num);
 void		*ft_memset( void *ptr, int value, size_t num );
