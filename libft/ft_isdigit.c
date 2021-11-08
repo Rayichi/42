@@ -6,13 +6,13 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:21:14 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 13:43:22 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 15:41:13 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	return (c <= '9' && c >= '0');
 }

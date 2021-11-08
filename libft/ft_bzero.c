@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:05:53 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 17:27:26 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 16:04:22 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (s && n--)
-	{
-		((unsigned char *)s)[i] = 0;
-		i++;
-	}
+	ft_memset(s, 0, n);
 }

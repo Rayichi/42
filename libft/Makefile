@@ -2,9 +2,9 @@ NAME = libft.a
 
 CC = gcc
 
-FLAGS = -wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
-FILE = $(addsuffix .c, atoi bzero calloc isalpha isalnum isdigit isascii isprint memccpy memcmp memcpy memmove memset strchr strdup strlcat strlcpy strlen strncmp strnstr strrchr tolower toupper putchar_fd putnbr_fd putstr_fd putendl_fd itoa)
+FILE = $(addsuffix .c, atoi bzero calloc isalpha isalnum isdigit isascii isprint memccpy memcmp memcpy memmove memset strchr strdup strlcat strlcpy strlen strncmp strnstr strrchr tolower toupper putchar_fd putnbr_fd putstr_fd putendl_fd itoa split memchr strmapi strjoin substr striteri strtrim)
 
 SRCS = $(addprefix ft_, $(FILE))
 

@@ -6,13 +6,13 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:22:27 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 13:43:13 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 15:41:13 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	return (c < 127 && c > 31);
 }

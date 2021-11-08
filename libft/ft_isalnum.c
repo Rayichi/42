@@ -6,13 +6,13 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:19:50 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 13:43:22 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 15:41:13 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(char c)
+int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }
