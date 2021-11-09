@@ -15,15 +15,17 @@
 char	*ft_strnstr(char *str, char *to_find, size_t n)
 {
 	size_t	a;
+	size_t	i;
 
 	a = ft_strlen(to_find);
-	if (a > n)
-		a = n;
-	while (str && *str)
+	i = 0;
+	if (a == 0)
+		return (str);
+	while (str[i] && (n - a) >= i)
 	{
-		if (!ft_strncmp(str, to_find, a))
-			return (str);
-		str++;
+		if (!ft_strncmp(&str[i], to_find, a))
+			return (str + i);
+		i++;
 	}
 	return (NULL);
 }

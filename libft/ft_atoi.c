@@ -24,10 +24,10 @@ int	ft_atoi(char *str)
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			i = -i;
+			i = -1;
 		str++;
 	}
-	while (*str && (*str <= '9' && *str == '0'))
+	while (*str && (*str <= '9' && *str >= '0'))
 	{
 		n = n * 10 + (*str - '0') * i;
 		str++;
