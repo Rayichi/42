@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int			ft_atoi(char *str);
+int			ft_atoi(char const *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t num, size_t size);
 int			ft_isalnum(int c);
@@ -38,18 +38,26 @@ void		ft_putstr_fd(char *str, int fd);
 char		*ft_strdup(char *str);
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		*ft_strjoin(char const *s1, char const *s2);
-int			ft_strlcpy(char *dest, char *src, size_t num);
+size_t		ft_strlcat(char *dest, char const *src, size_t n);
+int			ft_strlcpy(char *dest, char const *src, size_t num);
 size_t		ft_strlen(char const *str);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int			ft_strncmp(char *s1, char *s2, int n);
-char		*ft_strnstr(char *str, char *to_find, size_t n);
-char		*ft_strrchr(char *str, int c);
+int			ft_strncmp(char const *s1, char const *s2, int n);
+char		*ft_strnstr(char const *str, char const *to_find, size_t n);
+char		*ft_strrchr(char const *str, int c);
 char		*ft_strchr(char *str, int c);
 char		**ft_split(char const *s, char c);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
-int			tolower(int c);
-int			toupper(int c);
+int			ft_tolower(int c);
+int			ft_toupper(int c);
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}t_list;
+
+t_list		*ft_lstnew(void *content);
 
 #endif

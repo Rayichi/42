@@ -27,33 +27,39 @@ static int	ft_size(char const *s1, char const *set)
 {
 	size_t	i;
 
-	i = 1;
-	while (s1 && *s1)
-	{
-		i = i + ft_inset(*s1, set);
-		s1++;
-	}
+	i = 0;
+	while (s1 && s1[i])
+		i++;
+	i--;
+	while (s1 && i > 0 && !(ft_inset(s1[i], set)))
+		i--;
+	i++;
 	return (i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
+	size_t	j;
+	size_t	k;
 	char	*str;
 
-	i = 0 ;
-	str = malloc(sizeof(char *) * ft_size(s1, set));
+	i = 0;
+	while (s1 && s1[i] && !(ft_inset(s1[i], set)))
+		i++;
+	k = 0;
+	j = ft_size(s1, set);
+	if (i > j)
+		i = j;
+	str = malloc(sizeof(char) * (1 + (j - i)));
 	if (!str)
 		return (NULL);
-	while (*s1)
+	while (i < j)
 	{
-		if (ft_inset(*s1, set))
-		{
-			str[i] = *s1;
-			i++;
-		}
-		s1++;
+		str[k] = s1[i];
+		i++;
+		k++;
 	}
-	str[i] = 0;
+	str[k] = 0;
 	return (str);
 }

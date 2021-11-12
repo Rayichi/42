@@ -14,9 +14,9 @@
 
 char	*ft_strchr(char *str, int c)
 {
-	while (str && *str && *str != c)
+	while ((unsigned char)*str && (unsigned char)*str != (unsigned char)c)
 		str++;
-	if (*str != c)
+	if ((unsigned char)*str != (unsigned char)c)
 		return (NULL);
 	return (str);
 }

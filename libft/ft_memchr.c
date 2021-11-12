@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:24:03 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/09 15:24:27 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 14:28:36 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,5 @@ void	*ft_memchr(const void *ptr, int value, size_t num)
 			return ((unsigned char *)ptr + i);
 		i++;
 	}
-	if (value == 0 && num > 0)
-		return ((unsigned char *)ptr + i);
 	return ((unsigned char *)0);
 }

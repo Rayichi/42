@@ -12,13 +12,6 @@
 
 #include "libft.h"
 
-static int	ft_ws(char const c, char set)
-{
-	if (c == set)
-		return (1);
-	return (0);
-}
-
 static int	ft_word(char const *str, char set)
 {
 	int	up;
@@ -28,7 +21,7 @@ static int	ft_word(char const *str, char set)
 	mot = 0;
 	while (*str && str)
 	{
-		if (ft_ws(*str, set))
+		if (*str == set)
 			up = 1;
 		else if (up == 1)
 		{
@@ -45,18 +38,18 @@ static	int	ft_strlen_split(char const *str, char set)
 	int	i;
 
 	i = 0;
-	while (*str && str && ft_ws(*str, set))
+	while (*str && str && *str == set)
 		str++;
-	while (str[i] && !ft_ws(str[i], set))
+	while (str[i] && !(str[i] == set))
 		i++;
 	return (i + 1);
 }
 
 static char const	*ft_strcopy_split(char const *str, char *sdef, char set)
 {
-	while (*str && str && ft_ws(*str, set))
+	while (*str && str && *str == set)
 		str++;
-	while (str && *str && !ft_ws(*str, set))
+	while (str && *str && !(*str == set))
 	{
 		*sdef = *str;
 		str++;
@@ -64,6 +57,18 @@ static char const	*ft_strcopy_split(char const *str, char *sdef, char set)
 	}
 	*sdef = 0;
 	return (str);
+}
+
+static void	ft_free(char **sdef, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free((void *)sdef[j]);
+		j++;
+	}
 }
 
 char	**ft_split(char const *s, char c)
@@ -82,7 +87,10 @@ char	**ft_split(char const *s, char c)
 	{
 		sdef[i] = malloc(ft_strlen_split(s, c) + 1);
 		if (sdef[i] == NULL)
+		{
+			ft_free(sdef, i);
 			return (NULL);
+		}
 		s = ft_strcopy_split(s, sdef[i], c);
 		i++;
 	}

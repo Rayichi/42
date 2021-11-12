@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:58:25 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/09 16:55:50 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 16:19:45 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ char	*ft_fill(long n, char *str, int size)
 		n = n / 10;
 		i++;
 	}
-	str[size - i++] = '0' + n;
+	str[size - i] = '0' + n % 10;
+	i++;
 	str[i] = 0;
 	return (str);
 }
@@ -57,9 +58,3 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (ft_fill(n, str, size));
 }
-
-/*
-int main()
-{
-	printf("%s\n", ft_itoa(158));
-} */
