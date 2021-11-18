@@ -44,7 +44,7 @@ size_t		ft_strlen(char const *str);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int			ft_strncmp(char const *s1, char const *s2, int n);
 char		*ft_strnstr(char const *str, char const *to_find, size_t n);
-char		*ft_strrchr(char const *str, int c);
+char		*ft_strrchr(char *str, int c);
 char		*ft_strchr(char *str, int c);
 char		**ft_split(char const *s, char c);
 char		*ft_strtrim(char const *s1, char const *set);
@@ -56,7 +56,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **alst, t_list *new);

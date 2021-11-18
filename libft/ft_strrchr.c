@@ -15,7 +15,7 @@
 /*je suis giga con je pouvais faire strlen puis décrémenter 
 pour renvoyer la premiere occurence en partant de la fin */
 
-char	*ft_strrchr(char const *str, int c)
+char	*ft_strrchr(char *str, int c)
 {
 	char	*s;
 

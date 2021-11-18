@@ -1,4 +1,18 @@
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/18 16:53:23 by yfrancoi          #+#    #+#             */
+/*   Updated: 2021/11/18 16:53:23 by yfrancoi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*next;
 	t_list	*start;
@@ -7,13 +21,13 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		next = ft_lstnew(f(lst->content));
-		lst = lst->next;
-		if(!next)
+		if (!next)
 		{
-			ft-lstclear(&start, del);
+			ft_lstclear(&start, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&lst, next);
+		lst = lst->next;
+		ft_lstadd_back(&start, next);
 	}
-	return (start);	
+	return (start);
 }
