@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *str, int fd)
 {
-	while (*str && str)
+	while (*str && str && fd > -1)
 	{
 		ft_putchar_fd(*str, fd);
 		str++;
