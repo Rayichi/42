@@ -66,9 +66,11 @@ static void	ft_free(char **sdef, int i)
 	j = 0;
 	while (j < i)
 	{
-		free((void *)sdef[j]);
+		free(sdef[j]);
 		j++;
 	}
+	free(sdef);
+	sdef = NULL;
 }
 
 char	**ft_split(char const *s, char c)

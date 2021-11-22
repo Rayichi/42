@@ -12,12 +12,16 @@
 
 #include "libft.h"
 
-int	ft_size(int n)
+static int	ft_size(int n)
 {
 	int	i;
 
-	i = 1;
-	while (n < 0 || n > 9)
+	i = 0;
+	if (n < 0)
+		i++;
+	else if (n == 0)
+		return (1);
+	while (n != 0)
 	{
 		i++;
 		n = n / 10;
@@ -25,24 +29,22 @@ int	ft_size(int n)
 	return (i);
 }
 
-char	*ft_fill(long n, char *str, int size)
+static char	*ft_fill(long n, char *str, int size)
 {
 	int	i;
+	int nb;
 
 	i = 1;
+	nb = 1;
 	if (n < 0)
+		nb = -1;
+	while (i - 1 < size || n != 0)
 	{
+		str[size - i++] = (n * nb) % 10 + '0';
+		n = n /10;
+	}
+	if (nb < 0)
 		str[0] = '-';
-		n = -n;
-	}
-	while (n > 9)
-	{
-		str[size - i] = '0' + n % 10;
-		n = n / 10;
-		i++;
-	}
-	str[size - i] = '0' + n % 10;
-	i++;
 	str[i] = 0;
 	return (str);
 }
@@ -56,5 +58,6 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
-	return (ft_fill(n, str, size));
+	str = ft_fill(n, str, size);
+	return (str);
 }
