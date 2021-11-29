@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 17:10:19 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/29 17:17:34 by yfrancoi         ###   ########lyon.fr   */
+/*   Created: 2021/11/06 16:18:18 by yfrancoi          #+#    #+#             */
+/*   Updated: 2021/11/06 17:24:15 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include "libft.h"
-# include <stdarg.h>
-
-int	ft_putnbr_base(int nb, char *base);
-int	ft_printf(const char *format,...);
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	if (c && fd > -1)
+		write(fd, &c, 1);
+}

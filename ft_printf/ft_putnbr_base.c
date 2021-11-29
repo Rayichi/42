@@ -12,16 +12,15 @@ static int	ft_put_base(long nb, char *base, int size)
 		i++;
 	}
 	if (nb > size - 1)
-		i += ft_put_base(nb / size, base, size)
+		i += ft_put_base(nb / size, base, size);
 	ft_putchar_fd(base[nb % size], 1);
 	return (++i);
 }
 
-void	ft_putnbr_base(int nb, char *base)
+int	ft_putnbr_base(int nb, char *base)
 {
 	int	i;
 
 	i = ft_strlen(base);
-	if (i >= 2)
-		return(ft_put_base(nb, base, i));
+	return(ft_put_base(nb, base, i));
 }
