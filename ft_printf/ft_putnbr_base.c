@@ -17,7 +17,7 @@ static int	ft_put_base(long nb, char *base, int size)
 	return (++i);
 }
 
-int	ft_putnbr_base(int nb, char *base)
+int	ft_putnbr_base(long nb, char *base)
 {
 	int	i;
 

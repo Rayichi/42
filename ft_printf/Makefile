@@ -6,9 +6,7 @@ FLAGS = -Wall -Wextra -Werror
 
 FILE = ft_printf.c ft_putnbr_base.c
 
-SRCS = $(addsuffix .c, $(FILE))
-
-OBJS = ${SRCS:.c=.o}
+OBJS = ${FILE:.c=.o}
 
 
 
@@ -20,12 +18,16 @@ OBJS = ${SRCS:.c=.o}
 all: ${NAME}
 
 $(NAME): ${OBJS}
-	ar r ${NAME} ${OBJS}
+	${MAKE} -C ./libft
+	cp ./libft/libft.a ${NAME}
+	ar -rcs ${NAME} ${OBJS}
 
 clean:
-	rm -rf $(OBJS) $(BONUSO)
+	${MAKE} clean -C ./libft 
+	rm -rf $(OBJS)
 
 fclean: clean
+	${MAKE} fclean -C ./libft 
 	rm -rf $(NAME)
 
 re: fclean $(NAME)

@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:58:25 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/12 16:19:45 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/26 16:26:44 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static char	*ft_fill(long n, char *str, int size)
 	}
 	if (nb < 0)
 		str[0] = '-';
-	str[i] = 0;
 	return (str);
 }
 
@@ -58,6 +57,7 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
+	str[size] = 0;
 	str = ft_fill(n, str, size);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:21:24 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 17:24:15 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/26 16:29:30 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_putstr_fd(char *str, int fd)
 {
-	while (*str && str && fd > -1)
+	if (fd < -1)
+		return ;
+	while (str && *str)
 	{
 		ft_putchar_fd(*str, fd);
 		str++;
