@@ -3,12 +3,12 @@
 int	ft_void(va_list ag)
 {
 	int		i;
-	unsigned int	p;
+	unsigned long long int	p;
 
 	i = 2;
-	p = (unsigned int) va_arg(ag, void *);
+	p = (unsigned long long int) va_arg(ag, void *);
 	ft_putstr_fd("0x", 1);
-	i += ft_putnbr_base(p, "0123456789abcdef");
+	i += ft_putnbr_base_p(p, "0123456789abcdef");
 	return	(i);
 }
 
@@ -86,5 +86,6 @@ int	ft_printf(const char *format,...)
 		}
 		format++;
 	}
+
 	return (i);
 }
