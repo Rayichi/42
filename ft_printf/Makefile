@@ -12,7 +12,7 @@ OBJS = ${FILE:.c=.o}
 
 
 
-.c.o:
+%.o: %.c ft_printf.h Makefile
 	${CC} ${CFLAGS} -I . -c $< -o ${<:.c=.o}
 
 all: ${NAME}
