@@ -1,5 +1,11 @@
 #include "get_next_line.h"
 
+void	ft_free(**str)
+{
+	free(*str)
+	*str = 0;
+}
+
 void	ft_buff(char **buff)
 {
 	int		i;
@@ -20,18 +26,19 @@ char	*ft_read(char *buff, fd)
 {
 	char	*s;
 	char	*tmp;
-	int		stat;
 	char	*ret;
 
 	s = NULL;
-	stat = 1;
 	tmp = malloc((BUFFER_SIZE + 1) sizeof(char));
 	if (!tmp)
 		return (0);
-	while (stat && read(fd, tmp, BUFFER_SIZE))
+	tmp[BUFFER_SIZE] = 0;
+	ret = ft_strjoin(buff[fd], "")
+	while (ft_strchr(ret, '\n') && read(fd, tmp, BUFFER_SIZE))
 	{
-		ret = ft_strjoin(tmp, buff[fd])
+		ret = ft_strjoin(ret, tmp)
 		ft_free(&buff[fd]);
+		ft_free(&tmp);
 	}
 	return (ret);
 }

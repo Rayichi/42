@@ -27,10 +27,13 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-void	ft_free(**str)
+int	ft_strchr(char *str, int c)
 {
-	free(*str)
-	*str = 0;
+	while ((unsigned char)*str && (unsigned char)*str != (unsigned char)c)
+		str++;
+	if ((unsigned char)*str != (unsigned char)c)
+		return (1);
+	return (0);
 }
 
 void	ft_strcpy(char *s1, char *str)
