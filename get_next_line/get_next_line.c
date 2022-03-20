@@ -1,34 +1,52 @@
 #include "get_next_line.h"
 
-int	ft_read(char *buff, char **line)
+void	ft_buff(char **buff)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	char	*str;
 
 	i = 0;
-	j = 0;
-	while (j == 0 && buff[i])
-		if (buff[i++] == '\n')
-			j = 1;
-	*line = ft_strjoin(*line, &buff);
+	while ((*buff)[i] != '\n' && (*buff)[i])
+		i++;
+	str = malloc(strlen(((*buff)[i]) + 1) * sizeof(char));
+	if (!str)
+		return(NULL)
+	ft_strcpy(&((*buff)[i]), str)
 	ft_free(buff);
-	return (j);
+	*buff = str;
+}
+
+char	*ft_read(char *buff, fd)
+{
+	char	*s;
+	char	*tmp;
+	int		stat;
+	char	*ret;
+
+	s = NULL;
+	stat = 1;
+	tmp = malloc((BUFFER_SIZE + 1) sizeof(char));
+	if (!tmp)
+		return (0);
+	while (stat && read(fd, tmp, BUFFER_SIZE))
+	{
+		ret = ft_strjoin(tmp, buff[fd])
+		ft_free(&buff[fd]);
+	}
+	return (ret);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*buff[OPEN_MAX];
-	char		tmp[ARG_MAX];
-	int			stat;
 	char		*line;
 
-	stat = 0;
-	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
-	while (stat == 0 && read(fd, tmp, BUFFER_SIZE))
+	line = NULL;
+	if (fd > -1)
 	{
-		buff[fd] = ft_strjoin("", &tmp);
-		stat = ft_read(buff[fd], &line);
+		buff[fd] = ft_read(buff, fd);
+		line = ft_copy(buff[fd], &line);
+		ft_buff(buff[fd])
 	}
 	return (line);
 }
