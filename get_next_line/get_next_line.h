@@ -15,10 +15,10 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <limit.h>
+# include <limits.h>
 
-char	*get_next_line(int fd, chqr **line);
-void	ft_free(void *ptr)
-char	*ft_strjoin(char **buff, char **line)
+char	*get_next_line(int fd);
+void	ft_free(void *ptr);
+char	*ft_strjoin(char *buff, char **line);
 
 #endif

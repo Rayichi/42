@@ -7,10 +7,10 @@ int	ft_read(char *buff, char **line)
 
 	i = 0;
 	j = 0;
-	while (i == 0 && buff[i])
+	while (j == 0 && buff[i])
 		if (buff[i++] == '\n')
 			j = 1;
-	*line = ft_strjoin(line, buff);
+	*line = ft_strjoin(*line, &buff);
 	ft_free(buff);
 	return (j);
 }
@@ -22,13 +22,13 @@ char	*get_next_line(int fd)
 	int			stat;
 	char		*line;
 
-	stat 0;
+	stat = 0;
 	if (fd < 0 || BUFFER_SIZE < 0)
-		return (-1);
-	while (stat == 0 && read(fd, tmp, BUFER_SIZE))
+		return (NULL);
+	while (stat == 0 && read(fd, tmp, BUFFER_SIZE))
 	{
 		buff[fd] = ft_strjoin("", &tmp);
-		stat = ft_read(buff, &line);
+		stat = ft_read(buff[fd], &line);
 	}
 	return (line);
 }

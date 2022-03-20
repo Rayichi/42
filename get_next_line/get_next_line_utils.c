@@ -2,7 +2,7 @@
 
 static long long	ft_strlen(char *str)
 {
-	inti;
+	int	i;
 
 	i = 0;
 	while(str && str[i])
@@ -12,7 +12,7 @@ static long long	ft_strlen(char *str)
 
 static long long	ft_strlen_nl(char *str)
 {
-	inti;
+	int	i;
 
 	i = 0;
 	while(str && str[i] && str[i] != '\n')
@@ -27,8 +27,8 @@ char	*ft_strjoin(char *buff, char **line)
 	long long	j;
 
 	if (!buff || !line)
-		return (0);
-	str = malloc(sizeof(char) * ( 1 + ft_strlen_nl(*buff) + ft_strlen(*line)));
+		return (NULL);
+	str = malloc(sizeof(char) * ( 1 + ft_strlen_nl(buff) + ft_strlen(*line)));
 	if (!str)
 		return(0);
 	i = 0;
@@ -36,9 +36,9 @@ char	*ft_strjoin(char *buff, char **line)
 		str[j++] = (*line)[i++];
 	i = 0;
 	while (buff[i] && buff[i] != '\n')
-		str[j++] = (*buff)[i++];
+		str[j++] = buff[i++];
 	ft_free(line);
-	str[i] = 0;
+	str[j] = 0;
 	return (str);
 }
 
@@ -46,6 +46,6 @@ void	ft_free(void *ptr)
 {
 	if (!ptr)
 		return;
-	free(*ptr)
+	free(ptr);
 	ptr = NULL;
 }
