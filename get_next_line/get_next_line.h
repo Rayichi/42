@@ -19,9 +19,9 @@
 
 int		ft_strlen(char	*s);
 char	*ft_strjoin(char *s1, char *s2);
-void	ft_free(**str);
-void	ft_strcpy(char *s1, char *str);
-char	*ft_copy(char s1, char **line);
+char	*ft_strcpy(char *s1, char *str);
+char	*ft_copy(char *s1);
 char	*get_next_line(int fd);
+char	*ft_strchr(char *str, int c);
 
 #endif
