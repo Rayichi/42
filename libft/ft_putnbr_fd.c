@@ -6,13 +6,13 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:28:15 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/06 17:30:30 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 09:19:28 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr2(long n, int fd)
+static void	ft_putnbr2(long n, int fd)
 {
 	if (n >= 10)
 		ft_putnbr2(n / 10, fd);

@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:58:25 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/12 16:19:45 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/22 10:21:10 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_size(int n)
 static char	*ft_fill(long n, char *str, int size)
 {
 	int	i;
-	int nb;
+	int	nb;
 
 	i = 1;
 	nb = 1;
@@ -41,11 +41,10 @@ static char	*ft_fill(long n, char *str, int size)
 	while (i - 1 < size || n != 0)
 	{
 		str[size - i++] = (n * nb) % 10 + '0';
-		n = n /10;
+		n = n / 10;
 	}
 	if (nb < 0)
 		str[0] = '-';
-	str[i] = 0;
 	return (str);
 }
 
@@ -58,6 +57,7 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
+	str[size] = 0;
 	str = ft_fill(n, str, size);
 	return (str);
 }

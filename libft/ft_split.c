@@ -61,7 +61,7 @@ static char const	*ft_strcopy_split(char const *str, char *sdef, char set)
 
 static void	ft_free(char **sdef, int i)
 {
-	while (--i <= 0)
+	while (--i >= 0)
 	{
 		free(sdef[i]);
 	}
@@ -76,6 +76,8 @@ char	**ft_split(char const *s, char c)
 	int		word;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	word = ft_word(s, c);
 	sdef = malloc(sizeof(char *) * (word + 1));
 	if (!sdef)
@@ -86,7 +88,7 @@ char	**ft_split(char const *s, char c)
 		sdef[i] = malloc(ft_strlen_split(s, c));
 		if (sdef[i] == NULL)
 		{
-			//ft_free(sdef, i);
+			ft_free(sdef, i);
 			return (NULL);
 		}
 		s = ft_strcopy_split(s, sdef[i], c);
