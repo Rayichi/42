@@ -43,6 +43,7 @@ void	ft_reverse_rotate(t_list **a, char c)
 	ft_lstadd_back(a, swp);
 	ft_putstr_fd("rr", 1);
 	ft_putchar_fd(c, 1);
+	ft_putchar_fd('\n', 1);	
 }
 
 void	ft_rotate(t_list **a, char c)
@@ -55,6 +56,7 @@ void	ft_rotate(t_list **a, char c)
 	ft_lstadd_front(a, swp);
 		ft_putstr_fd("r", 1);
 	ft_putchar_fd(c, 1);
+	ft_putchar_fd('\n', 1);	
 }
 
 void	ft_push(t_list **a, t_list **b)
