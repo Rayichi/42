@@ -11,8 +11,7 @@ void	ft_swap(t_list **a, int nb)
 	value = swp->nb;
 	swp->nb = tmp->nb;
 	tmp->nb = value;
-	ft_putchar_fd('s', 1);
-	ft_putchar_fd('a' + nb, 1);
+	ft_printf("rr%c\n", ('a' + nb));
 }
 
 void	ft_ss(t_list **a, t_list **b)
@@ -41,9 +40,7 @@ void	ft_reverse_rotate(t_list **a, char c)
 	swp = *a;
 	*a = swp->next;
 	ft_lstadd_back(a, swp);
-	ft_putstr_fd("rr", 1);
-	ft_putchar_fd(c, 1);
-	ft_putchar_fd('\n', 1);	
+	ft_printf("rr%c\n", c);	
 }
 
 void	ft_rotate(t_list **a, char c)
@@ -54,9 +51,7 @@ void	ft_rotate(t_list **a, char c)
 	swp-next = *a
 	*a = swp;
 	ft_lstadd_front(a, swp);
-		ft_putstr_fd("r", 1);
-	ft_putchar_fd(c, 1);
-	ft_putchar_fd('\n', 1);	
+	ft_printf("r%c\n", c);	
 }
 
 void	ft_push(t_list **a, t_list **b)
