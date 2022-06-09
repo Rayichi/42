@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_put_base(long long nb, char *base, int size)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (nb < 0)
 	{
@@ -31,19 +31,19 @@ static int	ft_put_base(long long nb, char *base, int size)
 
 int	ft_putnbr_base(long long nb, char *base)
 {
-	int	i;
+	size_t	i;
 
 	i = ft_strlen(base);
-	return(ft_put_base(nb, base, i));
+	return (ft_put_base(nb, base, i));
 	return (0);
 }
 
 static int	ft_put_base2(unsigned long long int nb, char *base, int size)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
-	if (nb > size - 1)
+	if ((int) nb > size - 1)
 		i += ft_put_base2((unsigned long long)(nb / size), base, size);
 	ft_putchar_fd(base[nb % size], 1);
 	return (++i);
@@ -51,5 +51,5 @@ static int	ft_put_base2(unsigned long long int nb, char *base, int size)
 
 int	ft_putnbr_base_p(unsigned long long int nb, char *base)
 {
-	return(ft_put_base2(nb, base,16));
+	return (ft_put_base2(nb, base, 16));
 }

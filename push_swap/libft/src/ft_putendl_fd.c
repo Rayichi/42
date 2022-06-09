@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 18:16:16 by yfrancoi          #+#    #+#             */
-/*   Updated: 2021/11/29 18:26:18 by yfrancoi         ###   ########lyon.fr   */
+/*   Created: 2021/11/06 16:28:58 by yfrancoi          #+#    #+#             */
+/*   Updated: 2021/11/06 17:24:15 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-
-int		ft_strlen(char	*s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strcpy(char *s1, char *str);
-char	*ft_copy(char *s1);
-char	*get_next_line(int fd);
-char	*ft_strchr(char *str, int c);
-
-#endif
+void	ft_putendl_fd(char *str, int fd)
+{
+	if (str && fd > -1)
+	{
+		ft_putstr_fd(str, fd);
+		ft_putchar_fd('\n', fd);
+	}
+}

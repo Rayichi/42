@@ -20,12 +20,12 @@ int		ft_lstmin(t_list *lst)
 
 	i = 0;
 	k = 0;
-	min = lst->nb;
+	min = (long int) lst->content;
 	while (lst)
 	{
-		if (lst->nb < min)
+		if ((long int) lst->content < min)
 		{
-			min = lst->nb;
+			min = (long int) lst->content;
 			k = i;
 		}
 		i++;
@@ -38,28 +38,28 @@ void	ft_algo(t_list **lsta)
 {
 	t_list	*lstb;
 	int		size;
-	int		nb;
+	int		content;
 
-	nb = -1;
-	size = ft_lstsize(lsta);
+	content = -1;
+	size = ft_lstsize(*lsta);
 	while (size-- > 2)
 	{
-		nb = ft_lstmin(lsta)
-		if (nb > size / 2)
-			while (nb++ < size)
-				ft_reverse_rotate(lsta, 'a');
-		}
+		content = ft_lstmin(*lsta);
+		if (content > size / 2)
+			while (content++ < size)
+				ft_reverse_rotate(lsta);
 		else
-			while (nb--)
+			while (content--)
 				ft_rotate(lsta, 'a');
-		ft_push(lsta, lstb);
+		ft_push(lsta, &lstb);
+	}
 		ft_putstr_fd("pb\n", 1);
 	if (ft_lstmin(*lsta) > 0)
 		ft_rotate(lsta, 'a');
-	while(*lstb)
+	while(lstb)
 	{
-		ft_push(lstb, lsta)
-			ft_putstr_fd("pa\n", 1);
+		ft_push(&lstb, lsta);
+			ft_printf("pa\n");
 	}
 	ft_clear(lstb);
 }

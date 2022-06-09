@@ -31,14 +31,14 @@ t_list	*ft_create(char **spl)
 	t_list	**lst;
 	t_list	*new;
 	int		i;
-	long	nb;
+	long	content;
 
 	i = 0;
 	while (spl[i])
 	{
-		nb = ft_atoi_spe(spl[i])
-		new = ft_lstnew(nb);
-		if (nb < -2147483648 || !new)
+		content = ft_atoi_spe(spl[i])
+		new = ft_lstnew(content);
+		if (content < -2147483648 || !new)
 		{
 			ft_lstclear(lst, ft_lstdelone());
 			return (NULL);
@@ -79,7 +79,7 @@ int	ft_check(t_list *lst)
 		lstb = lst->next;
 		while(lstb)
 		{
-			if (lst->nb == lstb->nb)
+			if (lst->content == lstb->content)
 				return (1);
 			lstb = lstb->next;
 		}

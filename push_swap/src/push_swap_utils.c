@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ft_swap(t_list **a, int nb)
+void	ft_swap(t_list **a, int content)
 {
 	t_list	*tmp;
 	t_list	*swp;
@@ -8,10 +8,10 @@ void	ft_swap(t_list **a, int nb)
 
 	swp = *a;
 	tmp = swp->next;
-	value = swp->nb;
-	swp->nb = tmp->nb;
-	tmp->nb = value;
-	ft_printf("rr%c\n", ('a' + nb));
+	value = swp->content;
+	swp->content = tmp->content;
+	tmp->content = value;
+	ft_printf("rr%c\n", ('a' + content));
 }
 
 void	ft_ss(t_list **a, t_list **b)
@@ -22,14 +22,14 @@ void	ft_ss(t_list **a, t_list **b)
 
 	swp = *a;
 	tmp = swp->next;
-	value = swp->nb;
-	swp->nb = tmp->nb;
-	tmp->nb = value;
+	value = swp->content;
+	swp->content = tmp->content;
+	tmp->content = value;
 	swp = *b;
 	tmp = swp->next;
-	value = swp->nb;
-	swp->nb = tmp->nb;
-	tmp->nb = value;
+	value = swp->content;
+	swp->content = tmp->content;
+	tmp->content = value;
 	ft_putstr_fd("ss", 1);
 }
 

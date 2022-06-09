@@ -1,44 +1,59 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/24 09:22:56 by yfrancoi          #+#    #+#              #
+#    Updated: 2022/01/24 09:22:56 by yfrancoi         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-UTILS = $(addprefix ./src/, $(addsuffix .c, $(addprefix ft_, atoi bzero calloc isalpha isalnum \
-	isdigit isascii isprint memcmp memcpy memmove memset strchr strdup \
-	strlcat strlcpy strlen strncmp strnstr strrchr tolower toupper \
-	putchar_fd putnbr_fd putstr_fd putendl_fd itoa split memchr strmapi \
-	strjoin substr striteri strtrim)\
-	 ft_lstmap ft_lstnew ft_lstadd_front \
-	ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
-	ft_lstclear ft_lstiter))
-GNL = get_next line.c\
-	get_next_line_utils.c
+SRC = ft_lstmap.c ft_lstnew.c ft_lstadd_front.c \
+	ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+	ft_lstclear.c ft_lstiter.c\
+	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalpha.c ft_isalnum.c \
+	ft_isdigit.c ft_isascii.c ft_isprint.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strdup.c \
+	ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c \
+	ft_putchar_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_itoa.c ft_split.c ft_memchr.c ft_strmapi.c \
+	ft_strjoin.c ft_substr.c ft_striteri.c ft_strtrim.c
 
-GNLOBJ = $(GNL:.c=.o)
+SRC_DIR = src/
 
-FTPRINTF = ft_printf.c \
-	ft_printf_utils.c
+GNL = get_next_line.c get_next_line_utils.c
 
-FTPRINTFOBJ = $(GNL:.c=.o)
+GNL_DIR = gnl/
 
-OBJ = ${UTILS:.c=.o}
+FTPRINTF = ft_printf.c ft_printf_utils.c ft_putnbr_base.c
 
-obj/%.o: src/%.c includes/libft.h Makefile
-	${CC} ${CFLAGS} -I ./includes -c $< -o ${<:.c=.o}
+FTPRINTF_DIR = ft_printf/
 
-gnlobj/%.o:gnl/%.c includes/get_next_line.h Makefile
-	${CC} ${CFLAGS} -I ./includes -c $< -o ${<:.c=.o}
+OBJS = ${addprefix ${SRC_DIR}, ${SRC:.c=.o}} \
+	${addprefix ${GNL_DIR}, ${GNL:.c=.o}} \
+	${addprefix ${FTPRINTF_DIR}, ${FTPRINTF:.c=.o}} \
 
-ft_printf/%.o:printfobj/%.c includes/ft_printf.h Makefile
+OBJS_DIR = obj/
+
+OBJ = ${addprefix ${OBJS_DIR}, ${OBJS}}\
+
+
+obj/%.o: %.c includes/libft.h Makefile
+	${CC} ${FLAGS} -I ./includes -c $< -o $@
 
 all: ${NAME}
 
-$(NAME): ${OBJS} ${FTPRINTFOBJ} ${GNLOBJ}
-	ar r ${NAME} ${OBJS} ${FTPRINTFOBJ} ${GNLOBJ}
+$(NAME): ${OBJ}
+	ar r ${NAME} ${OBJ}
 
 clean:
-	rm -rf $(OBJS) ${FTPRINTFOBJ} ${GNLOBJ}
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)

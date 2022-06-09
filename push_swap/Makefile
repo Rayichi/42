@@ -4,23 +4,32 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-FILE = ft_printf.c ft_putnbr_base.c
+LIBFT = libft/libft.a
 
-OBJS = ${FILE:.c=.o}
+SRCS = push_swap.c \
+	main.c\
+	clear.c\
+	push_swap_utils.c\
+	check.c
+
+SRCS_DIR = src/
+
+OBJS = ${SRCS:.c=.o}
+
+OBJS_DIR = obj/
+
+OBJ = ${addprefix ${OBJS_DIR}, ${OBJS}}
 
 
 
-
-
-%.o: %.c ft_printf.h Makefile
-	${CC} ${CFLAGS} -I . -c $< -o ${<:.c=.o}
+${OBJS_DIR}%.o: ${SRCS_DIR}%.c includes/push_swap.h Makefile
+	${CC} ${CFLAGS} -I includes/ -c $< -o ${<:.c=.o}
 
 all: ${NAME}
 
-$(NAME): ${OBJS}
+$(NAME): ${OBJ}
 	@make -C ./libft
-	cp ./libft/libft.a ${NAME}
-	ar -rcs ${NAME} ${OBJS}
+	${CC} ${FLAGS} ${NAME} ${OBJ} ${LIBFT}
 
 clean:
 	@make clean -C ./libft 

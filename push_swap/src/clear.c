@@ -8,7 +8,7 @@ void	ft_clear(t_list *lst)
 	while (lst)
 	{
 		next = lst->next;
-		free(lst->value);
+		free(lst->content);
 		free(lst->next);
 		free(lst);
 		lst = next;

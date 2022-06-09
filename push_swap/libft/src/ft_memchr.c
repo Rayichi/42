@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 17:12:06 by yfrancoi          #+#    #+#             */
-/*   Updated: 2022/01/22 17:12:06 by yfrancoi         ###   ########lyon.fr   */
+/*   Created: 2021/11/08 17:24:03 by yfrancoi          #+#    #+#             */
+/*   Updated: 2021/11/12 14:28:36 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
+void	*ft_memchr(const void *ptr, int value, size_t num)
+{
+	size_t	i;
 
-void	ft_swap(t_list **a, int nb);
-void	ft_ss(t_list **a, t_list **b);
-void	ft_reverse_rotate(t_list **a);
-void	ft_rotate(t_list **a, char c);
-void	ft_push(t_list **a, t_list **b);
-int		ft_lstmin(t_list *lst);
-void	ft_algo(t_list **lsta);
-void	ft_clear(t_list *lst);
-void	ft_free(char **spl);
-
-#endif
+	i = 0;
+	while (num--)
+	{
+		if (((unsigned char *)ptr)[i] == (unsigned char)value)
+			return ((unsigned char *)ptr + i);
+		i++;
+	}
+	return ((unsigned char *)0);
+}
