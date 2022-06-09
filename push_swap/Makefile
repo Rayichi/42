@@ -1,42 +1,35 @@
-NAME = push_swap
+NAME = libftprintf.a
 
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-LIB = ./libft/libft.h
+FILE = ft_printf.c ft_putnbr_base.c
 
-SRCDIR = ./src/
-
-SRC = main.c push_swap.c push_swap_utils.c check.c
-
-OBJDIR = obj/
-
-OBJ = $($(SRC):.c=.o)
-
-INCLUDES = ./includes/
+OBJS = ${FILE:.c=.o}
 
 
- $(OBJDIR)%.o: $(SRCDIR)%.c Makefile $(INCLUDES)/push_swap.h
-	$(CC) $(FLAGS) -I ./includes -c $< -o $@
-
-all : ${NAME}
-
-${NAME} : $(OBJDIR)$(OBJ)
-	@make -C libft/
-	${CC} ${CFLAGS} -I ${INCLUDES} -o ${NAME} $(OBJDIR)$(OBJ) ${LIB} 
-
-clean :
-	@make clean -C ./libft/
-	@make clean -C $(OBJDIR)$(OBJ)
-
-fclean :
-	@make fclean -c ./libft/
-	@make fclean -C ./src/
-	rm -rf ${NAME}
 
 
-re : fclean
-	${NAME}
+
+%.o: %.c ft_printf.h Makefile
+	${CC} ${CFLAGS} -I . -c $< -o ${<:.c=.o}
+
+all: ${NAME}
+
+$(NAME): ${OBJS}
+	@make -C ./libft
+	cp ./libft/libft.a ${NAME}
+	ar -rcs ${NAME} ${OBJS}
+
+clean:
+	@make clean -C ./libft 
+	rm -rf $(OBJS)
+
+fclean: clean
+	@make fclean -C ./libft 
+	rm -rf $(NAME)
+
+re: fclean $(NAME)
 
 .PHONY: re all clean fclean

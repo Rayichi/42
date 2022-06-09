@@ -61,5 +61,5 @@ void	ft_algo(t_list **lsta)
 		ft_push(lstb, lsta)
 			ft_putstr_fd("pa\n", 1);
 	}
-
+	ft_clear(lstb);
 }

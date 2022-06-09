@@ -5,6 +5,26 @@
 
 # include "./libft/libft.a"
 
+typedef struct s_window
+{
+	int length;
+	int	weigth;
+	char	*name;
+	void	*ptr;
+	void	*mlx;
+}	t_window;
+
+typedef struct s_img
+{
+	int	length;
+	int	weigth;
+	void	*vide;
+	void	*mur;
+	void	*perso;
+	void	*obj;
+
+} t_img;
+
 typedef struct s_player
 {
 	int	x;
@@ -13,7 +33,7 @@ typedef struct s_player
 
 typedef struct s_map
 {
-	char	**s_map;
+	char	**map;
 	int		movement;
 	int		object;
 }	t_map;

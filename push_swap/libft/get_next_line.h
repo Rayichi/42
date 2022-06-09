@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 17:12:06 by yfrancoi          #+#    #+#             */
-/*   Updated: 2022/01/22 17:12:06 by yfrancoi         ###   ########lyon.fr   */
+/*   Created: 2021/11/29 18:16:16 by yfrancoi          #+#    #+#             */
+/*   Updated: 2021/11/29 18:26:18 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
-
-typedef struct s_list
-{
-	int	nb;
-	t_list	next
-} t_list;
-
-void	ft_swap(t_list **a, int nb);
-void	ft_ss(t_list **a, t_list **b);
-void	ft_reverse_rotate(t_list **a);
-void	ft_rotate(t_list **a);
-void	ft_push(t_list **a, t_list **b);
-int		ft_lstmin(t_list *lst);
-void	ft_algo(t_list **lsta);
-void	ft_clear(t_list *lst);
-void	ft_free(char **spl);
+int		ft_strlen(char	*s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strcpy(char *s1, char *str);
+char	*ft_copy(char *s1);
+char	*get_next_line(int fd);
+char	*ft_strchr(char *str, int c);
 
 #endif

@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 17:12:06 by yfrancoi          #+#    #+#             */
-/*   Updated: 2022/01/22 17:12:06 by yfrancoi         ###   ########lyon.fr   */
+/*   Created: 2021/11/29 17:10:19 by yfrancoi          #+#    #+#             */
+/*   Updated: 2021/12/03 15:28:43 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
 
-# include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
+# include "./libft/libft.h"
+# include <stdarg.h>
 
-typedef struct s_list
-{
-	int	nb;
-	t_list	next
-} t_list;
-
-void	ft_swap(t_list **a, int nb);
-void	ft_ss(t_list **a, t_list **b);
-void	ft_reverse_rotate(t_list **a);
-void	ft_rotate(t_list **a);
-void	ft_push(t_list **a, t_list **b);
-int		ft_lstmin(t_list *lst);
-void	ft_algo(t_list **lsta);
-void	ft_clear(t_list *lst);
-void	ft_free(char **spl);
+int	ft_putnbr_base_p(unsigned long long nb, char *base);
+int	ft_putnbr_base(long long nb, char *base);
+int	ft_printf(const char *format,...);
 
 #endif

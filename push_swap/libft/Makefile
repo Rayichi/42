@@ -4,32 +4,41 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-UTILS = $(addprefix ./utils/, $(addprefix ft_, atoi bzero calloc isalpha isalnum \
+UTILS = $(addprefix ./src/, $(addsuffix .c, $(addprefix ft_, atoi bzero calloc isalpha isalnum \
 	isdigit isascii isprint memcmp memcpy memmove memset strchr strdup \
 	strlcat strlcpy strlen strncmp strnstr strrchr tolower toupper \
 	putchar_fd putnbr_fd putstr_fd putendl_fd itoa split memchr strmapi \
 	strjoin substr striteri strtrim)\
-	$(addsuffix .c, ft_lstmap ft_lstnew ft_lstadd_front \
+	 ft_lstmap ft_lstnew ft_lstadd_front \
 	ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
-	ft_lstclear ft_lstiter) ft_printf.c ft_printf_utils.c get_next line.c\
-	get_next_line_utils.c)
+	ft_lstclear ft_lstiter))
+GNL = get_next line.c\
+	get_next_line_utils.c
 
-FILES = $(addprefix ./src/, push_swap.c push_swap_utils.c main.c)
+GNLOBJ = $(GNL:.c=.o)
 
-SRCS = $(FILES) $(UTILS)
+FTPRINTF = ft_printf.c \
+	ft_printf_utils.c
 
-OBJ = ${SRCS:.c=.o}
+FTPRINTFOBJ = $(GNL:.c=.o)
 
-%.o: %.c includes/libft.h Makefile
+OBJ = ${UTILS:.c=.o}
+
+obj/%.o: src/%.c includes/libft.h Makefile
 	${CC} ${CFLAGS} -I ./includes -c $< -o ${<:.c=.o}
+
+gnlobj/%.o:gnl/%.c includes/get_next_line.h Makefile
+	${CC} ${CFLAGS} -I ./includes -c $< -o ${<:.c=.o}
+
+ft_printf/%.o:printfobj/%.c includes/ft_printf.h Makefile
 
 all: ${NAME}
 
-$(NAME): ${OBJS}
-	ar r ${NAME} ${OBJS}
+$(NAME): ${OBJS} ${FTPRINTFOBJ} ${GNLOBJ}
+	ar r ${NAME} ${OBJS} ${FTPRINTFOBJ} ${GNLOBJ}
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) ${FTPRINTFOBJ} ${GNLOBJ}
 
 fclean: clean
 	rm -rf $(NAME)

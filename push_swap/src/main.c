@@ -8,7 +8,7 @@ int	main(int ac, char **av)
 	lsta = NULL;
 	spl = NULL;
 	if (ac != 2)
-		return (ft_printf("Error.\n pleaz use : ./push_swap \"your number\"";));
+		return (ft_printf("Error.\npleaz use : ./push_swap \"your number\"";));
 	spl = ft_parse(av[1])
 	if (!spl)
 		return (ft_printf("Error.\npleaz use numbers only and don't use same numbers"));
@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 	if (!lst || ft_cleck(lst))
 		return (ft_printf("Error.\npleaz use numbers only and don't use same numbers"));
 	ft_algo(lsta);
-	ft_lstclear(lsta, ft_lstdelone(t_list **));
+	ft_clear(lsta);
+	ft_free(spl);
 	return (0);
 }
