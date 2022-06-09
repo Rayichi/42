@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 13:12:07 by yfrancoi          #+#    #+#             */
-/*   Updated: 2022/01/22 16:32:25 by yfrancoi         ###   ########lyon.fr   */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   libft.h											:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: yfrancoi <yfrancoi@student.42lyon.fr>	  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2021/11/06 13:12:07 by yfrancoi		  #+#	#+#			 */
+/*   Updated: 2022/01/22 16:32:25 by yfrancoi		 ###   ########lyon.fr   */
+/*																			*/
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 int			ft_atoi(char const *str);
 void		ft_bzero(void *s, size_t n);
@@ -66,5 +67,14 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int	 	ft_putnbr_base_p(unsigned long long nb, char *base);
+int	 	ft_putnbr_base(long long nb, char *base);
+int	 	ft_printf(const char *format, ...);
+int	 	ft_case(const char c, va_list ag);
+char	*ft_strjoin_free(char *s1, char *s2);
+char	*ft_strcpy(char *s1, char *str);
+char	*ft_copy(char *s1);
+char	*get_next_line(int fd);
 
 #endif
