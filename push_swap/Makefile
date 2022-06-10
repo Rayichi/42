@@ -1,4 +1,16 @@
-NAME = libftprintf.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/10 17:19:35 by yfrancoi          #+#    #+#              #
+#    Updated: 2022/06/10 17:19:35 by yfrancoi         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = push_swap
 
 CC = gcc
 
@@ -6,11 +18,25 @@ FLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
-SRCS = push_swap.c \
+SRCS =pa.c\
+	pb.c\
+	ra.c\
+	rb.c\
+	rr.c\
+	rra.c\
+	rrb.c\
+	rrr.c\
+	sa.c\
+	sb.c\
+	ss.c\
+	rotate.c\
+	reverse_rotate.c\
+	ft_swap.c\
+	push_swap.c \
 	main.c\
 	clear.c\
-	push_swap_utils.c\
-	check.c
+	check.c\
+
 
 SRCS_DIR = src/
 
@@ -23,7 +49,7 @@ OBJ = ${addprefix ${OBJS_DIR}, ${OBJS}}
 
 
 ${OBJS_DIR}%.o: ${SRCS_DIR}%.c includes/push_swap.h Makefile
-	${CC} ${CFLAGS} -I includes/ -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I includes/ -c $< -o $@
 
 all: ${NAME}
 
