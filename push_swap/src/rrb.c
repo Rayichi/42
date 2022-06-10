@@ -14,6 +14,6 @@
 
 void	rrb(t_list **a)
 {
-	ft_reverrse_rotate(a);
+	ft_reverse_rotate(a);
 	ft_printf("rrb\n");
 }

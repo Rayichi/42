@@ -32,10 +32,10 @@ SRCS =pa.c\
 	rotate.c\
 	reverse_rotate.c\
 	ft_swap.c\
-	push_swap.c \
+	#push_swap.c \
 	main.c\
 	clear.c\
-	check.c\
+	check.c\#
 
 
 SRCS_DIR = src/
