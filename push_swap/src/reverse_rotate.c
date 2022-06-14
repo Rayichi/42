@@ -15,10 +15,18 @@
 void	ft_reverse_rotate(t_list **a)
 {
 	t_list	*swp;
+	t_list	*last;
 
-	swp = ft_lstlast(*a);
-	ft_lstadd_front(a, swp);
-	*a = swp;
-	swp = ft_lstlast(*a);
-	swp->next = NULL;
+	last = *a;
+	swp = NULL;
+	if (a && *a)
+	{
+		while (last->next != NULL)
+		{
+			swp = last;
+			last = last->next;
+		}
+		swp->next = NULL;
+		ft_lstadd_front(a, last);
+	}
 }

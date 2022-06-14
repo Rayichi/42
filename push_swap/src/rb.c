@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ra(t_list **b)
+void	rb(t_list **b)
 {
 	ft_rotate(b);
 	ft_printf("rb\n");

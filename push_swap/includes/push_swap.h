@@ -16,13 +16,19 @@
 # include "libft.h"
 
 int		ft_lstmin(t_list *lst);
-void	ft_algo(t_list **lsta);
+void	ft_algo(t_list **lsta, t_list **lstb);
 void	ft_clear(t_list *lst);
 void	ft_free(char **spl);
+long	ft_atoi_spe(char const *str);
+t_list	*ft_create(char **spl);
+char	**ft_parse(char *str);
+int		ft_check(t_list *lst);
+int		ft_format(char *str);
+
 void	ft_pa(t_list **a, t_list **b);
 void	ft_pb(t_list **a, t_list **b);
 void	ra(t_list **a);
-void	ra(t_list **b);
+void	rb(t_list **b);
 void	ft_reverse_rotate(t_list **a);
 void	ft_rotate(t_list **a);
 void	rr(t_list **a, t_list **b);

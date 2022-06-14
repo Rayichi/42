@@ -12,14 +12,16 @@
 
 #include "push_swap.h"
 
-int		ft_lstmin(t_list *lst)
+int		ft_lstmin(t_list *lsta)
 {
 	int	i;
 	int k;
-	int min;
+	long int min;
+	t_list	*lst;
 
 	i = 0;
 	k = 0;
+	lst = lsta;
 	min = (long int) lst->content;
 	while (lst)
 	{
@@ -34,32 +36,41 @@ int		ft_lstmin(t_list *lst)
 	return (k);
 }
 
-void	ft_algo(t_list **lsta)
+static void	chain(t_list *lst)
 {
-	t_list	*lstb;
+	int i = 0;
+	while (lst)
+	{
+		ft_printf("%d : %d\n", i++, lst->content);
+		lst = lst->next;
+	}
+	ft_printf("%s\n\n", lst);
+}
+
+
+void	ft_algo(t_list **lsta, t_list **lstb)
+{
 	int		size;
 	int		content;
 
 	content = -1;
 	size = ft_lstsize(*lsta);
-	while (size-- > 2)
+	ft_printf("%d", size);
+	while (size -- > 2)
 	{
 		content = ft_lstmin(*lsta);
 		if (content > size / 2)
-			while (content++ < size)
-				ft_reverse_rotate(lsta);
+			while (content++ <= size)
+				rra(lsta);
 		else
 			while (content--)
-				ft_rotate(lsta, 'a');
-		ft_push(lsta, &lstb);
+				ra(lsta);
+		ft_pb(lsta, lstb);
 	}
-		ft_putstr_fd("pb\n", 1);
 	if (ft_lstmin(*lsta) > 0)
-		ft_rotate(lsta, 'a');
-	while(lstb)
-	{
-		ft_push(&lstb, lsta);
-			ft_printf("pa\n");
-	}
-	ft_clear(lstb);
+		ra(lsta);
+	while(*lstb)
+		ft_pa(lsta, lstb);
+	chain(*lsta);
 }
+

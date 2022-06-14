@@ -16,7 +16,11 @@ void	ft_rotate(t_list **a)
 {
 	t_list	*swp;
 
-	swp = (*a)->next;
-	ft_lstadd_back(a, *a);
-	*a = swp;
+	if (a && *a)
+	{
+		swp = (*a)->next;
+		ft_lstadd_back(a, *a);
+		(*a)->next = NULL;
+		*a = swp;
+	}
 }

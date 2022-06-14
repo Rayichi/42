@@ -16,9 +16,11 @@ void	ft_pb(t_list **a, t_list **b)
 {
 	t_list	*swp;
 
-	if (*a)
+	swp = NULL;
+	if (a && *a)
 	{
 		swp = (*a)->next;
+		(*a)->next = NULL;
 		ft_lstadd_front(b, *a);
 	}
 	*a = swp;

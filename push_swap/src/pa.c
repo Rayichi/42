@@ -16,11 +16,13 @@ void	ft_pa(t_list **a, t_list **b)
 {
 	t_list	*swp;
 
-	if (*a)
+	swp = NULL;
+	if (b && *b)
 	{
-		swp = (*a)->next;
-		ft_lstadd_front(b, *a);
+		swp = (*b)->next;
+		(*b)->next = NULL;
+		ft_lstadd_front(a, *b);
 	}
-	*a = swp;
+	*b = swp;
 	ft_printf("pa\n");
 }

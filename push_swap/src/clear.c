@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
 void	ft_clear(t_list *lst)
 {
 	t_list	*next;
 
-	next = NULL
+	next = NULL;
 	while (lst)
 	{
 		next = lst->next;
