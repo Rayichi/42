@@ -59,7 +59,7 @@ $(NAME): ${OBJ}
 
 clean:
 	@make clean -C ./libft 
-	rm -rf $(OBJS)
+	rm -rf $(OBJ)
 
 fclean: clean
 	@make fclean -C ./libft 
