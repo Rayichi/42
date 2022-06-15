@@ -36,7 +36,7 @@ SRCS =pa.c\
 	main.c\
 	clear.c\
 	check.c\
-
+	verif.c\
 
 SRCS_DIR = src/
 

@@ -55,7 +55,6 @@ void	ft_algo(t_list **lsta, t_list **lstb)
 
 	content = -1;
 	size = ft_lstsize(*lsta);
-	ft_printf("%d", size);
 	while (size -- > 2)
 	{
 		content = ft_lstmin(*lsta);
@@ -71,6 +70,6 @@ void	ft_algo(t_list **lsta, t_list **lstb)
 		ra(lsta);
 	while(*lstb)
 		ft_pa(lsta, lstb);
-	chain(*lsta);
+	//chain(*lsta);
 }
 

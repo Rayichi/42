@@ -24,7 +24,7 @@ t_list	*ft_create(char **spl);
 char	**ft_parse(char *str);
 int		ft_check(t_list *lst);
 int		ft_format(char *str);
-
+int		ft_verif(t_list *lsta);
 void	ft_pa(t_list **a, t_list **b);
 void	ft_pb(t_list **a, t_list **b);
 void	ra(t_list **a);

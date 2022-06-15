@@ -40,7 +40,8 @@ int	main(int ac, char **av)
 	lsta = ft_create(spl);
 	if (!lsta || ft_check(lsta))
 		return (ft_printf("Error.\npleaz use numbers only and don't use same numbers"));
-	ft_algo(&lsta, &lstb);
+	if (ft_verif(lsta))
+		ft_algo(&lsta, &lstb);
 	//ft_clear(lsta);
 	//ft_free(spl);
 	return (0);
