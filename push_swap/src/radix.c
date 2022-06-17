@@ -6,7 +6,7 @@
 /*   By: yfrancoi <yfrancoi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:12:05 by yfrancoi          #+#    #+#             */
-/*   Updated: 2022/06/17 19:40:39 by yfrancoi         ###   ########lyon.fr   */
+/*   Updated: 2022/06/17 20:37:18 by yfrancoi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,29 @@ long	ft_pow(long x, int n)
 	return (nb);
 }
 
-void ft_empty(t_list **a, t_list **b)
+void	ft_empty(t_list **a, t_list **b)
 {
 	while (*b)
 		ft_pa(a, b);
 }
 
-static void	chain(t_list *lst)
-{
-	int i = 0;
-	while (lst)
-	{
-		ft_printf("%d : %d\n", i++, lst->content);
-		lst = lst->next;
-	}
-	ft_printf("%s\n\n", lst);
-}
-
 void	ft_radix(t_list **a, t_list **b, int size)
 {
-	int	i;
+	int		i;
 	long	nb;
-	int j;
+	int		min;
+	int		j;
 
 	i = 1;
 	j = 0;
 	while (i < 17)
 	{
+		min = ft_pow(2, i - 1) - 1;
 		nb = (ft_pow(2, i));
 		j = 0;
 		while (j < size)
 		{
-			//ft_printf("\n%d \n", nb);
-			if ((((long)(*a)->content % nb) - (ft_pow(2, i - 1) - 1)) > 0)
+			if ((((long)(*a)->content % nb) - min) > 0)
 				ra(a);
 			else
 				ft_pb(a, b);
@@ -62,8 +52,7 @@ void	ft_radix(t_list **a, t_list **b, int size)
 		}
 		ft_empty(a, b);
 		i++;
-		//chain(*a);
 		if (!ft_verif(*a))
-			return;
+			return ;
 	}
 }

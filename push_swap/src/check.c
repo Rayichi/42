@@ -37,7 +37,7 @@ long	ft_atoi_spe(char const *str)
 	return (n);
 }
 
-t_list	*ft_create(char **spl,int ac)
+t_list	*ft_create(char **spl, int ac)
 {
 	t_list	*lst;
 	t_list	*new;
@@ -53,6 +53,8 @@ t_list	*ft_create(char **spl,int ac)
 		new = ft_lstnew((void *) content);
 		if (content < -2147483648 || !new)
 		{
+			if (new)
+				free(new);
 			ft_clear(lst);
 			return (NULL);
 		}
@@ -62,16 +64,16 @@ t_list	*ft_create(char **spl,int ac)
 	return (lst);
 }
 
-int	ft_parse(char **str,int ac)
+int	ft_parse(char **str, int ac)
 {
-	int i;
-	
-	i = i;
+	int	i;
+
+	i = 1;
 	if (!str)
 		return (0);
-	while (i++ < ac )
+	while (i < ac)
 	{
-		if (!ft_format(str[i]))
+		if (!ft_format(str[i++]))
 			return (0);
 	}
 	return (1);
@@ -98,12 +100,12 @@ int	ft_check(t_list *lst)
 int	ft_format(char *str)
 {
 	if (!str || !*str)
-		return(0);
+		return (0);
 	{
 		if (str && (*str == '-' || *str == '+'))
 			str++;
-		while (*str < '9' && *str > '0')
-			str++;		
+		while (*str <= '9' && *str >= '0')
+			str++;
 		if (*str)
 			return (0);
 	}

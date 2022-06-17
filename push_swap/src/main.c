@@ -20,12 +20,12 @@ int	main(int ac, char **av)
 	lsta = NULL;
 	lstb = NULL;
 	if (ac < 2)
-		return (ft_printf("E  rror.\n"));
+		return (ft_printf("Error.\n"));
 	if (!ft_parse(av, ac))
-		return (ft_printf("Err  or.\n"));
+		return (ft_printf("Error.\n"));
 	lsta = ft_create(av, ac);
 	if (!lsta || ft_check(lsta))
-		return (ft_printf("Erro  r.\n"));
+		return (ft_printf("Error.\n"));
 	if (ft_verif(lsta))
 		ft_algo(&lsta, &lstb);
 	ft_clear(lsta);
