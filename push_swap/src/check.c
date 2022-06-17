@@ -14,7 +14,7 @@
 
 long	ft_atoi_spe(char const *str)
 {
-	int	i;
+	int		i;
 	long	n;
 
 	i = 1;
@@ -37,23 +37,23 @@ long	ft_atoi_spe(char const *str)
 	return (n);
 }
 
-t_list	*ft_create(char **spl)
+t_list	*ft_create(char **spl,int ac)
 {
 	t_list	*lst;
 	t_list	*new;
-	long		i;
+	long	i;
 	long	content;
 
-	i = 0;
+	i = 1;
 	lst = NULL;
 	new = NULL;
-	while (spl[i])
+	while (i < ac)
 	{
 		content = ft_atoi_spe(spl[i]);
 		new = ft_lstnew((void *) content);
 		if (content < -2147483648 || !new)
 		{
-			//ft_clear(lst);
+			ft_clear(lst);
 			return (NULL);
 		}
 		ft_lstadd_back(&lst, new);
@@ -62,27 +62,29 @@ t_list	*ft_create(char **spl)
 	return (lst);
 }
 
-char	**ft_parse(char *str)
+int	ft_parse(char **str,int ac)
 {
-	t_list	*lst;
-	char	**spl;
-
+	int i;
+	
+	i = i;
 	if (!str)
-		return (NULL);
-	if (!ft_format(str))
-		return (NULL);
-	spl = ft_split(str, ' ');
-	return (spl);
+		return (0);
+	while (i++ < ac )
+	{
+		if (!ft_format(str[i]))
+			return (0);
+	}
+	return (1);
 }
 
 int	ft_check(t_list *lst)
 {
-	t_list *lstb;
+	t_list	*lstb;
 
-	while(lst)
+	while (lst)
 	{
 		lstb = lst->next;
-		while(lstb)
+		while (lstb)
 		{
 			if ((long) lst->content == (long) lstb->content)
 				return (1);
@@ -93,19 +95,16 @@ int	ft_check(t_list *lst)
 	return (0);
 }
 
-int		ft_format(char *str)
+int	ft_format(char *str)
 {
+	if (!str || !*str)
+		return(0);
 	{
-		while(*str < '9' && *str > '0')
+		if (str && (*str == '-' || *str == '+'))
 			str++;
-		if (!*str)
-			return (1);
-		if (*str && *str != ' ')
-			return (0);
-		str++;
-		if (str && *str == '-')
-			str++;
-		if (*str && !(*str < '9' && *str > '0'))
+		while (*str < '9' && *str > '0')
+			str++;		
+		if (*str)
 			return (0);
 	}
 	return (1);

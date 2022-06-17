@@ -68,13 +68,13 @@ void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-int	 	ft_putnbr_base_p(unsigned long long nb, char *base);
-int	 	ft_putnbr_base(long long nb, char *base);
-int	 	ft_printf(const char *format, ...);
-int	 	ft_case(const char c, va_list ag);
-char	*ft_strjoin_free(char *s1, char *s2);
-char	*ft_strcpy(char *s1, char *str);
-char	*ft_copy(char *s1);
-char	*get_next_line(int fd);
+int			ft_putnbr_base_p(unsigned long long nb, char *base);
+int			ft_putnbr_base(long long nb, char *base);
+int			ft_printf(const char *format, ...);
+int			ft_case(const char c, va_list ag);
+char		*ft_strjoin_free(char *s1, char *s2);
+char		*ft_strcpy(char *s1, char *str);
+char		*ft_copy(char *s1);
+char		*get_next_line(int fd);
 
 #endif

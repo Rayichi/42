@@ -37,6 +37,8 @@ SRCS =pa.c\
 	clear.c\
 	check.c\
 	verif.c\
+	mini_algo.c\
+	radix.c\
 
 SRCS_DIR = src/
 

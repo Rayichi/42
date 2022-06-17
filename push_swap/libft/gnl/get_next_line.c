@@ -68,7 +68,6 @@ char	*get_next_line(int fd)
 	static char	*buff[257];
 	char		*line;
 
-	
 	line = NULL;
 	if (fd > -1 && fd < 256)
 	{
